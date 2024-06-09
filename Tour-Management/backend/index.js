@@ -284,9 +284,9 @@ app.get('/api/tour/search/getTourCount', async (req, res) => {
 
 // update users
 app.put('/users/:id', verifyUser , async (req, res) => {
+    
     const id = req.params.id;
     const { username, email, password, photo } = req.body;
-
     const salt = await bcrypt.genSalt(10)
     const hashPassword = await bcrypt.hash(password , salt)
 
